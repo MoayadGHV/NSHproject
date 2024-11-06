@@ -1,9 +1,0 @@
-ra=0
-rb=1
-ro=ra
-rb=ra+rb
-jc=0
-ra=ra+rb
-rb=ra-rb
-ra=ra-rb
-j=2
