@@ -83,6 +83,8 @@ void writeBinary(char *temp, FILE *wfp) {
         fprintf(wfp, "%03b\n", num);
         printf("Line %d: J=%d\n", i, num);
         i++;
+    } else {
+        perror("wrong instruction");
     }
     
 

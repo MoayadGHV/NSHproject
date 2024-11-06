@@ -2,7 +2,10 @@
 #include <stdbool.h>
 
 	
-	int mux2to1(int input0, int input1, bool sel0) {
-	    if (!sel0) return input0;
-    		else if (sel0) return input1;
+	void mux2to1(int input0, int input1, bool sel, int out) {
+	    if (!sel){ 
+			out = input0;
+		} else{
+			out = input1;
+		} 
 	}

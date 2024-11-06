@@ -11,7 +11,7 @@
 
 int main(int argc, char *argv[]){
     
-    int ra, rb, ro, imm, res= 0;
+    int ra, rb, ro, imm, muxout, res= 0;
     bool j, c, carry, d0, d1, sreg, s, enA, enB, enO = 0;
     int pc = 0;
     int insructions[9];
@@ -28,10 +28,11 @@ int main(int argc, char *argv[]){
         currentins = fetch(insructions, pc);
         extractBits(currentins, &j, &c, &d1, &d0, &sreg, &imm, &s);
 
-        int muxtemp = mux2to1(res, imm, sreg);
+        mux2to1(res, imm, sreg, muxout);
+        
         decoder2to4(d1, d0, &enA, &enB, &enO);
-        if (enA){ra = imm;}
-        if (enB){rb = imm;}
+        if (enA){ra = muxtemp;}
+        if (enB){rb = muxtemp;}
         if (enO){ro = ra;}
         ALU(s, ra, rb, res, carry);
         if ((carry & c) | j){
