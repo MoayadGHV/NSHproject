@@ -10,6 +10,6 @@
 		*output2 = (input0 == 1 && input1 == 0);
     	
 	// NOTHING to DO 	
-	*output3 = (input0 == 1 && input1 == 1);
+		*output3 = (input0 == 1 && input1 == 1);
 	}
 
