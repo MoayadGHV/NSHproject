@@ -1,4 +1,4 @@
 
-char * fetch(char instructions[][9], int pc){
+int fetch(int *instructions, int pc){
     return instructions[pc];
 }

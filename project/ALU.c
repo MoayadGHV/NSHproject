@@ -1,7 +1,7 @@
 #include <stdbool.h>
 
 
-void ALU(bool sel, int num1, int num2, int *res, bool *carry){
+void ALU(bool sel, int num1, int num2, int res, bool carry){
 
 
     if(!sel){
@@ -13,7 +13,7 @@ void ALU(bool sel, int num1, int num2, int *res, bool *carry){
             res = (num1 - num2) + 8;
             carry = 1;
         } else {
-            return num1 - num2;
+            res = num1 - num2;
         }
 
     }
