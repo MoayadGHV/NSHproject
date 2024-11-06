@@ -53,14 +53,13 @@ void writeBinary(char *temp, FILE *wfp) {
     }
 }
 
-int main() {
+void assemble() {
     char line[20]; // Increased size to accommodate larger lines if needed
     FILE *rfp = fopen("ins.asm", "r+");
     FILE *wfp = fopen("binary.bin", "w+");
 
     if (rfp == NULL || wfp == NULL) {
-        printf("Error opening file.\n");
-        return 1;
+        perror("Error opening file.\n");
     }
 
     // Read each line, convert to lowercase, and pass to writeBinary
@@ -71,6 +70,4 @@ int main() {
 
     fclose(rfp);
     fclose(wfp);
-
-    return 0;
 }

@@ -1,16 +1,22 @@
+#include <stdbool.h>
 
-int add(int num1, int num2){
 
-    return num1 + num2;
+void ALU(bool sel, int num1, int num2, int *res, bool *carry){
 
-}
 
-int sub(int num1, int num2){
+    if(!sel){
+        res = num1 + num2;
+        if (res > 7){carry == 1;}
+    } else if(sel){
 
-    if (num1 < num2){
-        return (num1 - num2) + 8;
-    } else {
-        return num1 - num2;
+        if (num1 < num2){
+            res = (num1 - num2) + 8;
+            carry = 1;
+        } else {
+            return num1 - num2;
+        }
+
     }
 
 }
+

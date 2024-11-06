@@ -2,24 +2,26 @@
 #include <stdio.h>
 #include <string.h>
 
-void loadmem(char *filename, char instructions[][9]){
-
+void loadmem(char *filename, int *instructions){
+    char text[sizeof(instructions)+1];
     FILE *rfp = fopen(filename, "r");
-    
-
-    for (int i = 0; i < 16; i++){
-        fgets(instructions[i], 16, rfp);
-        instructions[i][strcspn(instructions[i], "\n")] = '\0';
-    }
-
+    int i = 0;
+   
+    while(fgets(text, sizeof(text), rfp)){
+     
+        if (text[0] == '\n'){continue;}
+        instructions[i] = (int) strtol(text, NULL, 2);
+        i++;
+        }
 }
 
+
 int main(){
-    char instructions[16][9];
+    int instructions[16];
 
     loadmem("binary.bin", instructions);
-    for (int i = 0; i < 16; i++){
-        printf("%s\n", instructions[i]);
-    }
+    // for (int i = 0; i < 9; i++){
+    //     printf("%d\n", instructions[i]);
+    // }
     
 }
