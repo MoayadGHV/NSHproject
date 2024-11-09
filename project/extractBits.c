@@ -1,3 +1,6 @@
+#include <stdbool.h>
+#include "extractBits.h"
+
 void extractBits(int ins, bool *j, bool *c, bool *d1, bool *d0, bool *sreg, int *imm, bool *s) {
     *j = (ins >> 7) & 1;
     *c = (ins >> 6) & 1;

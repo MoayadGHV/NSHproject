@@ -1,3 +1,6 @@
+#include <stdbool.h>
+#include "Deco.h"
+
 
 	//int Dec2to4();
 	void decoder2to4(bool input1, bool input0, bool *output0, bool *output1, bool *output2) {

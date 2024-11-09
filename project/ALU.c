@@ -1,5 +1,5 @@
 #include <stdbool.h>
-
+#include "ALU.h"
 
 void ALU(bool sel, int num1, int num2, int res, bool carry){
 
