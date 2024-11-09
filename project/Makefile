@@ -20,6 +20,10 @@ $(TARGET): $(OBJ)
 simulate : $(TARGET)
 	./$(TARGET) $(FILENAME)
 
+assemble : assembler.c
+	$(CC) -o assemble assembler.c
+	./assemble $(FILENAME)
+
 # Compile each .c file into .o, with dependency on .h files
 ALU.o: ALU.c ALU.h
 Deco.o: Deco.c Deco.h
