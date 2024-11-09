@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
+#include "instructionMemory.h"
 void loadmem(char *filename, int *instructions){
     char text[sizeof(instructions)+1];
     FILE *rfp = fopen(filename, "r");

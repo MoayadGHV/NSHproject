@@ -34,59 +34,63 @@ void intToBinary3Bit(int num, char *binary) {
     }
     binary[3] = '\0';
 }
+int linecntr = 1;
 
 void writeBinary(char *temp, FILE *wfp) {
+    
+    
     rmvSpace(temp);
     temp[strcspn(temp, "\n")] = 0;
-    int i = 1;
+    
     if (strcmp(temp, "ra=ra+rb") == 0) {
         fprintf(wfp, "00000000\n");
-        printf("Line %d: RA=RA+RB\n", i);
-        i++;
+        printf("Line %d: RA=RA+RB\n", linecntr);
+        
     } else if (strcmp(temp, "rb=ra+rb") == 0) {
         fprintf(wfp, "00010000\n");
-        printf("Line %d: RB=RA+RB\n", i);
-        i++;
+        printf("Line %d: RB=RA+RB\n", linecntr);
+      
     } else if (strcmp(temp, "ra=ra-rb") == 0) {
         fprintf(wfp, "00000100\n");
-        printf("Line %d: RA=RA-RB\n", i);
-        i++;
+        printf("Line %d: RA=RA-RB\n", linecntr);
+        
     } else if (strcmp(temp, "rb=ra-rb") == 0) {
         fprintf(wfp, "00010100\n");
-        printf("Line %d: RB=RA-RB\n", i);
-        i++;
+        printf("Line %d: RB=RA-RB\n", linecntr);
+        
     } else if (strcmp(temp, "ro=ra") == 0) {
         fprintf(wfp, "00100000\n");
-        printf("Line %d: RO=RA\n", i);
-        i++;
+        printf("Line %d: RO=RA\n", linecntr);
+       
     } else if (strncmp(temp, "ra=", 3) == 0) {
         fprintf(wfp, "00001");
         int num = temp[3] - '0';
         fprintf(wfp, "%03b\n", num);
-        printf("Line %d: RA=%d\n", i, num);
-        i++;
+        printf("Line %d: RA=%d\n", linecntr, num);
+      
     } else if (strncmp(temp, "rb=", 3) == 0) {
         fprintf(wfp, "00011");
         int num = temp[3] - '0';
         fprintf(wfp, "%03b\n", num);
-        printf("Line %d: RB=%d\n", i, num);
-        i++;
+        printf("Line %d: RB=%d\n", linecntr, num);
+        
     } else if (strncmp(temp, "jc=", 3) == 0) {
         fprintf(wfp, "01110");
         int num = temp[3] - '0';
         fprintf(wfp, "%03b\n", num);
-        printf("Line %d: JC=%d\n", i, num);
-        i++;
+        printf("Line %d: JC=%d\n", linecntr, num);
+        
     } else if (strncmp(temp, "j=", 2) == 0) {
         fprintf(wfp, "10110");
         int num = temp[2] - '0';
         fprintf(wfp, "%03b\n", num);
-        printf("Line %d: J=%d\n", i, num);
-        i++;
+        printf("Line %d: J=%d\n", linecntr, num);
+        
     } else {
         perror("wrong instruction");
     }
-    
+    linecntr++; 
+
 
 }
 
